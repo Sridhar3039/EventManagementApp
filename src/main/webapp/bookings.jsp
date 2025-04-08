@@ -109,10 +109,10 @@
             <label for="startDate">Enter End Date and Time</label>
             <input id="startDate" type="date" name="endDate" /><input type="time" name="endTime" />
           </p><br><br>
-          <button class="back"  onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: rgb(97, 97, 97);"></i></button>
-          <input class="btn" type="submit" value="submit" />
           
+          <input class="btn" type="submit" value="submit" />
         </form>
+        <button class="back"  onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: rgb(97, 97, 97);"></i></button>
       </div>
       <div class="img-container">
         <img src="/EventManagementApp/img/<%=details.getImage_url() %>" alt="" />

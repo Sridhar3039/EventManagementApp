@@ -9,7 +9,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Birthday</title>
+    <title>Event Details</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -24,6 +24,11 @@
       referrerpolicy="no-referrer"
     ></script>
     <style>
+    	.body{
+    		background-image: url("/EventManagementApp/img/eventDetails_bg.jpg");
+    		background-repeat: no-repeat;
+  			background-size: 100% 100vh;
+    	}
         .container{
             height: 70vh;
             width: 80%;
@@ -76,7 +81,27 @@
       	right: 30px;
 
       }
-      
+      .update{
+      	text-decoration: none;
+      	background-color: #f1f1f1;
+      	color: black;
+      	padding: 8px 10px;
+      	border-radius: 8px;
+      	display: block;
+      	text-align: center;
+      	width: 20rem;
+      	margin-bottom: 10px;
+      }
+      .delete{
+      	text-decoration: none;
+      	background-color: #f1f1f1;
+      	color: black;
+      	padding: 8px 10px;
+      	border-radius: 8px;
+      	display: block;
+      	text-align: center;
+      	width: 20rem;
+      }
     </style>
   </head>
   <body>
@@ -93,10 +118,20 @@
         <div class="text-container">
             <h1><%=eventDetails.getDetail_type() %></h1>
             <p><%=eventDetails.getDetail_description() %></p>
+     
+            <%if(users != null && users.getRole() != null && !users.getRole().equals("Admin")) { %>
             <form action="bookings" method="post">
           		<input type="hidden" value="<%=eventDetails.getDetail_id() %>" name="detail_id" />
           		<input type="submit" value="Book Now" class="btn" />
        		 </form>
+       		<%} %>
+       		
+       		<%if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
+       		<center>
+            <a class="update" href="">Update</a>
+            <a class="delete" href="">Delete</a>
+            </center>
+       		<%} %>
         </div>
         <img src="/EventManagementApp/img/<%=eventDetails.getImage_url()%>" alt="" height="100%">
         
