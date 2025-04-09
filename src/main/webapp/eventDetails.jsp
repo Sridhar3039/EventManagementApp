@@ -65,12 +65,13 @@
         top: 30px;
         left: 30px;
         background: none;
+        cursor: pointer;
       }
       .add{
-      	width:30px;
-      	height: 30px;
+      	width: 50px;
+      	height: 50px;
       	border: 2px solid rgb(97, 97, 97);
-      	color: rgb(97, 97, 97);
+        color: rgb(97, 97, 97);
       	border-radius: 8px;
       	font-size: 30px;
       	padding: 7px;
@@ -79,41 +80,46 @@
       	position: fixed;
       	top: 30px;
       	right: 30px;
+      	background: none;
+      	cursor: pointer;
 
       }
       .update{
       	text-decoration: none;
-      	background-color: #f1f1f1;
-      	color: black;
+      	background-color: rgb(65, 65, 142);
+      	color: white;
       	padding: 8px 10px;
       	border-radius: 8px;
       	display: block;
       	text-align: center;
-      	width: 20rem;
+      	width: 250px;
       	margin-bottom: 10px;
       }
       .delete{
       	text-decoration: none;
-      	background-color: #f1f1f1;
-      	color: black;
+      	background-color: rgb(162, 34, 34);
+      	color: white;
       	padding: 8px 10px;
       	border-radius: 8px;
       	display: block;
       	text-align: center;
-      	width: 20rem;
+      	width: 150px;
       }
     </style>
   </head>
   <body>
-  	<% Users users = (Users)session.getAttribute("users"); 
-		if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
-    	<a href="" class="add"><i class="fa-solid fa-plus" style="color: rgb(97, 97, 97);"></i></a>
+  	<% Users users = (Users)session.getAttribute("users");
+  		int event_id=(int)session.getAttribute("event_id");
+  		EventDetailsDAO ed=new EventDetailsDAOImpl();
+  		ArrayList<EventDetails> detailsList=ed.getEvents(event_id);
+  		for(EventDetails eventDetails:detailsList){
+  	   if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
+		<form action="" method="post">
+			<input type="hidden" name="event_id" value="<%=event_id%>" >
+			<button class="add"><i class="fa-solid fa-plus" style="color: rgb(97, 97, 97);"></i></button>
+		</form>
 	<%} %>
   	<button class="back"  onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: rgb(97, 97, 97);"></i></button>
-  	<% int event_id=(int)session.getAttribute("event_id");
-  	EventDetailsDAO ed=new EventDetailsDAOImpl();
-  	ArrayList<EventDetails> detailsList=ed.getEvents(event_id);
-  	for(EventDetails eventDetails:detailsList){%>
   	<div class="container">
         <div class="text-container">
             <h1><%=eventDetails.getDetail_type() %></h1>
