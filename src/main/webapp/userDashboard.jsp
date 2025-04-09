@@ -39,6 +39,11 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <style type="text/css">
+    	#menuList li:hover{
+    		background-color: gray;
+    	}
+    </style>
   </head>
   <body>
     <nav>
@@ -49,13 +54,13 @@
         <input class="search" type="search" placeholder="Search events" />
         <i class="fa-solid fa-magnifying-glass search-icon" style="color: #6c6c6c;"></i>
       </div>
-      <ul id="menuList">
-      	<li><a id="openModal" href="javascript:void(0)">Leave a Review</a></li>
-        <li><a href="orderHistory.jsp">Order History</a></li>
-        <li><a href="updateUser.jsp">Update Profile</a></li>
-        <li><a href="reset.jsp">Reset Password</a></li>
-        <li><a href="logout">Logout</a></li>
-      </ul>
+      <div id="menuList">
+      	<a id="openModal" href="javascript:void(0)">Leave a Review</a>
+        <a href="orderHistory.jsp">Order History</a>
+        <a href="updateUser.jsp">Update Profile</a>
+        <a href="reset.jsp">Reset Password</a>
+        <a href="logout">Logout</a>
+      </div>
       <div class="menu-icon">
         <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
       </div>

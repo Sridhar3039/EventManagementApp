@@ -48,15 +48,15 @@
         <input class="search" type="search" placeholder="Search events" />
         <i class="fa-solid fa-magnifying-glass search-icon" style="color: #6c6c6c;"></i>
       </div>
-      <ul id="menuList">
-        <li><a href="">Pending Orders</a></li>
-        <li><a href="">View Users</a></li>
-        <li><a href="">Access as User</a></li>
-        <li><a href="">Add Events</a></li>
-        <li><a href="">Update Events</a></li>
-        <li><a href="">Delete Events</a></li>
-        <li><a href="logout">Logout</a></li>  
-      </ul>
+      <div id="menuList">
+        <a href="">Pending Orders</a>
+        <a href="">View Users</a>
+        <a href="">Access as User</a>
+        <a href="">Add Events</a>
+        <a href="">Update Events</a>
+        <a href="">Delete Events</a>
+        <a href="logout">Logout</a>
+      </div>
       <div class="menu-icon">
         <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
       </div>

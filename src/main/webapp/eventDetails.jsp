@@ -52,6 +52,9 @@
         .btn{
         	padding:8px 10px;
         	border-radius:8px;
+        	background-color: rgb(65, 65, 142);
+      		color: white;
+      		cursor: pointer;
         }
         .back{
       	width: 50px;
@@ -126,6 +129,12 @@
             <p><%=eventDetails.getDetail_description() %></p>
      
             <%if(users != null && users.getRole() != null && !users.getRole().equals("Admin")) { %>
+            <form action="bookings" method="post">
+          		<input type="hidden" value="<%=eventDetails.getDetail_id() %>" name="detail_id" />
+          		<input type="submit" value="Book Now" class="btn" />
+       		 </form>
+       		<%} %>
+       		<%if(users == null) { %>
             <form action="bookings" method="post">
           		<input type="hidden" value="<%=eventDetails.getDetail_id() %>" name="detail_id" />
           		<input type="submit" value="Book Now" class="btn" />
