@@ -24,10 +24,11 @@
       referrerpolicy="no-referrer"
     ></script>
     <style>
-    	.body{
+    	body{
     		background-image: url("/EventManagementApp/img/eventDetails_bg.jpg");
     		background-repeat: no-repeat;
   			background-size: 100% 100vh;
+  			background-attachment: fixed;
     	}
         .container{
             height: 70vh;
@@ -36,25 +37,33 @@
             justify-content: space-between;
             align-items: center;
             margin: 0 auto;
-            margin-top: 120px;
+            margin-top: 20px;
+            margin-bottom: 230px;
             border-radius: 20px;
-            box-shadow: 10px 10px 20px;
+            box-shadow: 0px 0px 20px gray;
+            background-color: rgb(154, 194, 235);
         }
         .text-container{
             width: 50%;
             margin: 0 auto;
             padding:20px;
+            color: white;
         }
         img{
             object-fit: fill;
             border-radius: 0px 20px 20px 0px;
         }
         .btn{
-        	padding:8px 10px;
+        	padding:10px 13px;
+        	border: none;
         	border-radius:8px;
-        	background-color: rgb(65, 65, 142);
+        	background-color: rgb(59, 121, 183);
       		color: white;
       		cursor: pointer;
+      		
+        }
+        .btn:hover{
+        	background-color: rgb(89, 147, 206);
         }
         .back{
       	width: 50px;

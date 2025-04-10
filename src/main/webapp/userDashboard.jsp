@@ -48,7 +48,8 @@
   <body>
     <nav>
       <div class="logo">
-        <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" />
+        <!-- <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" /> -->
+        <h1>Vibrance</h1>
       </div>
       <div>
         <input class="search" type="search" placeholder="Search events" />
@@ -127,6 +128,7 @@
         type="button"
         data-bs-target="#carouselExampleInterval"
         data-bs-slide="prev"
+        style="height: 60vh; margin-top: 70px;"
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -136,6 +138,7 @@
         type="button"
         data-bs-target="#carouselExampleInterval"
         data-bs-slide="next"
+        style="height: 60vh; margin-top: 70px;"
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
@@ -244,7 +247,8 @@
       <footer>
       <div class="footer">
         <div class="footer-content">
-          <img src="/EventManagementApp/img/eventLogo.png" alt="" height="100px">
+          <!-- <img src="/EventManagementApp/img/eventLogo.png" alt="" height="100px"> -->
+          <h1>Vibrance</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad cupiditate reiciendis quam eaque quisquam perspiciatis nulla cumque non ab nesciunt provident, minus, aspernatur quaerat odio deleniti, harum ratione officia ex!</p>
           <div class="footer-icon">
             <i class="fa-brands fa-instagram" style="color: #000000;"></i>

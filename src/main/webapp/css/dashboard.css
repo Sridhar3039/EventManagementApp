@@ -53,13 +53,13 @@ nav {
   overflow: hidden; 
 }
 #menuList a {
-  padding: 20px;
+  padding: 20px 50px;
 }
 .menu-icon {
   display: block;
 }
 #menuList a:hover{
-  background-color: #aaa;
+  background-color: rgb(89, 147, 206);
 }
 .search-icon{
   position: relative;
@@ -68,7 +68,7 @@ nav {
 }
 .btns a {
   text-decoration: none;
-  background-color: rgb(65, 65, 142);
+  background-color: rgb(59, 121, 183);
   padding: 8px 10px;
   border-radius: 8px;
   color: white;

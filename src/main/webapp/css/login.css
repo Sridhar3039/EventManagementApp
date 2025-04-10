@@ -93,7 +93,7 @@ body {
 button {
   width: 100%;
   padding: 10px;
-  background: rgb(15, 182, 238);
+  background: rgb(59, 121, 183);
   color: white;
   border: none;
   border-radius: 5px;
@@ -102,7 +102,7 @@ button {
 }
 
 button:hover {
-  background: rgb(69, 240, 255);
+  background: rgb(139, 171, 203);
 }
 .account,
 .account a {
