@@ -52,7 +52,7 @@
       <div id="menuList">
         <a href="">Pending Orders</a>
         <a href="">View Users</a>
-        <a href="">Access as User</a>
+        <a href="userDashboard.jsp">Access as User</a>
         <a href="">Add Events</a>
         <a href="">Update Events</a>
         <a href="">Delete Events</a>
@@ -155,9 +155,27 @@
         <%} %>
       </div>
     </div>
+    <center><h1>About Us</h1></center>
+    <div class="about">
+      <div class="about-text">
+        <h4>Dreams come to life through meticulously planned and beautifully executed events. Founded on the belief that every moment is worth celebrating, we specialize in creating experiences that bring joy, connection, and unforgettable memories.
+          With a passionate team of event experts and creative visionaries, we cater to a wide array of occasions from intimate gatherings to grand celebrations. Whether it's a birthday, engagement, wedding, baby shower, product launch, or private party, we approach each event with care, precision, and enthusiasm.</h4>
+      </div>
+      <div class="about-img">
+        <div>
+          <img src="/EventManagementApp/img/About-img1.jpeg" alt="" height="200px" width="300px">
+          <img src="/EventManagementApp/img/About-img2.jpeg" alt="" height="200px" width="300px">
+        </div>
+        <div>
+          <img src="/EventManagementApp/img/About-img3.jpeg" alt="" height="420px">
+        </div>
+      </div>
+    </div>
+    <center><h1>Location</h1></center>
     <div class="maps">
     	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.924784485952!2d77.54279107513094!3d12.976662514767167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3def4fc5f6a1%3A0x1d115ce6552ed936!2sGagan%20Party%20Hall%20(Radha%20Krishna%20Kalayana%20Mantapa)!5e0!3m2!1sen!2sin!4v1743747595907!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+    <center><h1>Feedback</h1></center>
   <div class="feedbackReview">
     <div class="review-content1">
     <%FeedbackDAO f=new FeedbackDAOImpl();
@@ -221,10 +239,10 @@
           <h1>Vibrance</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad cupiditate reiciendis quam eaque quisquam perspiciatis nulla cumque non ab nesciunt provident, minus, aspernatur quaerat odio deleniti, harum ratione officia ex!</p>
           <div class="footer-icon">
-            <i class="fa-brands fa-instagram" style="color: #000000;"></i>
-            <i class="fa-brands fa-facebook" style="color: #000000;"></i>
-            <i class="fa-brands fa-twitter" style="color: #000000;"></i>
-            <i class="fa-brands fa-whatsapp" style="color: #000000;"></i>
+            <i class="fa-brands fa-instagram" style="color: #000000; font-size: 25px;"></i>
+            <i class="fa-brands fa-facebook" style="color: #000000; font-size: 25px;"></i>
+            <i class="fa-brands fa-twitter" style="color: #000000; font-size: 25px;"></i>
+            <i class="fa-brands fa-whatsapp" style="color: #000000; font-size: 25px;"></i>
           </div>
         </div>
         <div class="footer-events">
@@ -240,7 +258,7 @@
         <div class="footer-contact">
           <h2>Contact Us</h2>
           <p><i class="fa-solid fa-phone" style="color: #000000;"></i> 8965237415</p>
-          <p><i class="fa-solid fa-envelope" style="color: #000000;"></i> joyous@gmail.com</p>
+          <p><i class="fa-solid fa-envelope" style="color: #000000;"></i> vibrance@gmail.com</p>
         </div>
       </div>
     </footer>

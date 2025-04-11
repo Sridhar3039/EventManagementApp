@@ -74,6 +74,9 @@ nav {
   color: white;
   margin-left: 10px;
 }
+.btns a:hover{
+	background: rgb(139, 171, 203);
+}
 .outer {
   overflow: scroll;
   width: 100%;
@@ -117,6 +120,23 @@ nav {
 .carousel-control-next, .carousel-control-prev {
 	z-index: 0 !important; 
 }
+.about{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+.about-text{
+  padding: 0 50px;
+}
+.about-img{
+  display: flex;
+}
+.about-img img{
+  margin: 10px;
+}
 .review-content{
   width: 100%;
   display: flex;
@@ -151,10 +171,17 @@ nav {
     margin: 15% auto;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 300px !important;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     text-align: center;
+}
+.modal-content button{
+   	background-color: rgb(59, 121, 183);
+    color: white;
+}
+.modal-content button:hover {
+	background-color: rgb(89, 147, 206);
 }
 .close {
     position: absolute;
@@ -235,6 +262,7 @@ textarea::-webkit-scrollbar {
 }
 .maps{
 	width:100%;
+	margin: 30px 0px;
 }
 .footer{
   height: 350px;
