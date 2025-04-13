@@ -263,6 +263,20 @@
       </div>
     </footer>
     <script>
+
+      /* Add JS for navbar scroll effect */
+document.addEventListener('DOMContentLoaded', function() {
+  window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+});
+
+
       let menuList = document.getElementById("menuList");
       menuList.style.maxHeight = "0px";
       function toggleMenu() {

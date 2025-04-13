@@ -24,99 +24,228 @@
       referrerpolicy="no-referrer"
     ></script>
     <style>
-    	body{
-    		background-image: url("/EventManagementApp/img/eventDetails_bg.jpg");
-    		background-repeat: no-repeat;
-  			background-size: 100% 100vh;
-  			background-attachment: fixed;
-    	}
-        .container{
-            height: 70vh;
-            width: 80%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 0 auto;
-            margin-top: 20px;
-            margin-bottom: 230px;
-            border-radius: 20px;
-            box-shadow: 0px 0px 20px gray;
-            background-color: rgb(154, 194, 235);
-        }
-        .text-container{
-            width: 50%;
-            margin: 0 auto;
-            padding:20px;
-            color: white;
-        }
-        img{
-            object-fit: fill;
-            border-radius: 0px 20px 20px 0px;
-        }
-        .btn{
-        	padding:10px 13px;
-        	border: none;
-        	border-radius:8px;
-        	background-color: rgb(59, 121, 183);
-      		color: white;
-      		cursor: pointer;
-      		
-        }
-        .btn:hover{
-        	background-color: rgb(89, 147, 206);
-        }
-        .back{
-      	width: 50px;
-      	height: 50px;
-      	border: 2px solid rgb(97, 97, 97);
-        color: rgb(97, 97, 97);
-      	border-radius: 50%;
-      	font-size: 30px;
-      	padding:7px;
-        position: fixed;
-        top: 30px;
-        left: 30px;
-        background: none;
-        cursor: pointer;
-      }
-      .add{
-      	width: 50px;
-      	height: 50px;
-      	border: 2px solid rgb(97, 97, 97);
-        color: rgb(97, 97, 97);
-      	border-radius: 8px;
-      	font-size: 30px;
-      	padding: 7px;
-      	position: fixed;
-      	align-items: center;
-      	position: fixed;
-      	top: 30px;
-      	right: 30px;
-      	background: none;
-      	cursor: pointer;
+    	body {
+    background-image: url("/EventManagementApp/img/eventDetails_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
 
-      }
-      .update{
-      	text-decoration: none;
-      	background-color: rgb(65, 65, 142);
-      	color: white;
-      	padding: 8px 10px;
-      	border-radius: 8px;
-      	display: block;
-      	text-align: center;
-      	width: 250px;
-      	margin-bottom: 10px;
-      }
-      .delete{
-      	text-decoration: none;
-      	background-color: rgb(162, 34, 34);
-      	color: white;
-      	padding: 8px 10px;
-      	border-radius: 8px;
-      	display: block;
-      	text-align: center;
-      	width: 150px;
-      }
+.container {
+    width: 80%; /* Reduced from 90% */
+    max-width: 1000px; /* Reduced from 1200px */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgb(154, 194, 235);
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.text-container {
+    width: 50%;
+    padding: 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-container h1 {
+    margin-top: 0;
+    font-size: 2.2rem;
+    color: #333;
+}
+
+.text-container p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.container img {
+    width: 50%;
+    height: 400px; /* Fixed height for all images */
+    object-fit: cover;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(59, 121, 183);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    max-width: 200px;
+}
+
+.btn:hover {
+    background-color: rgb(89, 147, 206);
+}
+
+.back {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(97, 97, 97);
+    color: rgb(97, 97, 97);
+    border-radius: 50%;
+    font-size: 30px;
+    padding: 7px;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    background: none;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.back:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.add {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(97, 97, 97);
+    color: rgb(97, 97, 97);
+    border-radius: 8px;
+    font-size: 30px;
+    padding: 7px;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: none;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.add:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.update {
+    text-decoration: none;
+    background-color: rgb(65, 65, 142);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    width: 250px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.update:hover {
+    background-color: rgb(85, 85, 182);
+}
+
+.delete {
+    text-decoration: none;
+    background-color: rgb(162, 34, 34);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    width: 150px;
+    transition: background-color 0.3s ease;
+}
+
+.delete:hover {
+    background-color: rgb(192, 64, 64);
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 992px) {
+    .container {
+        width: 85%;
+    }
+    
+    .text-container h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse;
+        margin: 70px auto;
+    }
+    
+    .text-container, .container img {
+        width: 100%;
+    }
+    
+    .container img {
+        height: 300px; /* Maintain consistent height in mobile view */
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .update, .delete {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .back, .add {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        top: 15px;
+    }
+    
+    .back {
+        left: 15px;
+    }
+    
+    .add {
+        right: 15px;
+    }
+    
+    .text-container {
+        padding: 20px;
+    }
+    
+    .text-container h1 {
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        margin-top: 60px;
+        width: 90%; /* Adjusted for very small screens */
+    }
+    
+    .btn, .update, .delete {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .container img {
+        height: 250px; /* Smaller height for very small screens */
+    }
+}
+
+
     </style>
   </head>
   <body>
