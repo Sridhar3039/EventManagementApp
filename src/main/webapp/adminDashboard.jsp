@@ -50,12 +50,11 @@
         <i class="fa-solid fa-magnifying-glass search-icon" style="color: #6c6c6c;"></i>
       </div>
       <div id="menuList">
-        <a href="">Pending Orders</a>
-        <a href="">View Users</a>
-        <a href="">Access as User</a>
-        <a href="">Add Events</a>
-        <a href="">Update Events</a>
-        <a href="">Delete Events</a>
+        <a href="pendingorder.jsp">Pending Orders</a>
+        <a href="viewuser.jsp">View Users</a>
+        <a href="addevents.jsp">Add Events</a>
+        <a href="updateEvent.jsp">Update Events</a>
+        <a href="deleteEvents.jsp">Delete Events</a>
         <a href="logout">Logout</a>
       </div>
       <div class="menu-icon">

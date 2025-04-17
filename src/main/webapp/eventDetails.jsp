@@ -151,10 +151,15 @@
        		<%} %>
        		
        		<%if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
+       		<form action="update" method="post">
        		<center>
-            <a class="update" href="">Update</a>
-            <a class="delete" href="">Delete</a>
+       		<input type="hidden" name="detail_id" value="<%=eventDetails.getDetail_id()%>">
+       		<input class="update"  type="submit" value="Update">
+           <!--  <a class="update" href="#">Update</a>
+            <a class="delete" href="">Delete</a> -->
+            
             </center>
+            </form>
        		<%} %>
         </div>
         <img src="/EventManagementApp/img/<%=eventDetails.getImage_url()%>" alt="" height="100%">
