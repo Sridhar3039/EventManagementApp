@@ -10,6 +10,7 @@ public interface EventDetailsDAO {
     public boolean deleteEventDetails(EventDetails ed);
     public EventDetails getEventDetails(int detail_id);
     public ArrayList<EventDetails> getEvents(int event_id);
+    
 	public ArrayList<EventDetails> getEventDetails();
 
 }

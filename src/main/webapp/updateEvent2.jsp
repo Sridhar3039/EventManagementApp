@@ -1,15 +1,19 @@
 <%@page import="com.event.dto.Users"%>
 <%@page import="com.event.dto.EventDetails"%>
+<%@page import="com.event.dao.EventDetailsDAOImpl"%>
+<%@page import="com.event.dao.EventDetailsDAO"%>
+<%@page import="com.event.dto.Events"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.event.dao.*"%>
+<%@page import="com.event.dao.EventsDAOImpl"%>
+<%@page import="com.event.dao.EventsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Details</title>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Update Events</title>
+<link rel="stylesheet" href="/EventManagementApp/css/dashboard.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -23,7 +27,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+     <style>
     	body {
     background-image: url("/EventManagementApp/img/eventDetails_bg.jpg");
     background-repeat: no-repeat;
@@ -58,9 +73,9 @@
     justify-content: center;
 }
 
-.text-container h1 {
+.text-container input {
     margin-top: 0;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     color: #333;
 }
 
@@ -102,7 +117,7 @@
     font-size: 30px;
     padding: 7px;
     position: fixed;
-    top: 30px;
+    top: 110px;
     left: 30px;
     background: none;
     cursor: pointer;
@@ -118,7 +133,7 @@
 }
 
 .add {
-    width: 46px;
+    width: 50px;
     height: 50px;
     border: 2px solid rgb(97, 97, 97);
     color: rgb(97, 97, 97);
@@ -226,7 +241,7 @@
         padding: 20px;
     }
     
-    .text-container h1 {
+    .text-container input {
         font-size: 1.5rem;
     }
     
@@ -247,63 +262,96 @@
 
 
     </style>
-  </head>
-  <body>
-  	<% Users users = (Users)session.getAttribute("users");
-  		int event_id=(int)session.getAttribute("event_id");
-  		EventDetailsDAO ed=new EventDetailsDAOImpl();
-  		ArrayList<EventDetails> detailsList=ed.getEvents(event_id);
-  		for(EventDetails eventDetails:detailsList){
-  	   if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
-		
-			<a class="add" href="addevents.jsp"><i class="fa-solid fa-plus" style="color: rgb(97, 97, 97);"></i></a>
-		
-	<%} %>
+</head>
+<body>
+<nav>
+      <div class="logo">
+        <!-- <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" /> -->
+        <h1>Vibrance</h1>
+      </div>
+      <div>
+        <input class="search" type="search" placeholder="Search events" />
+        <i class="fa-solid fa-magnifying-glass search-icon" style="color: #6c6c6c;"></i>
+      </div>
+      <div id="menuList">
+        <a href="pendingorder.jsp">Pending Orders</a>
+        <a href="viewuser.jsp">View Users</a>
+        <a href="addevents.jsp">Add Events</a>
+        <a href="updateEvent.jsp">Update Events</a>
+        <a href="deleteEvents.jsp">Delete Events</a>
+        <a href="logout">Logout</a>
+      </div>
+      <div class="menu-icon">
+        <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+      </div>
+    </nav>
+    
+   
   	<button class="back"  onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: rgb(97, 97, 97);"></i></button>
+  	
+  	 <%String success=(String)request.getAttribute("udsuccess");
+      		if(success!=null){%>
+      		<h3 style="color:green"><%=success %></h3>
+      	  <%} %>
+         <%String error=(String)request.getAttribute("udfail");
+      		if(error!=null){%>
+      		<h3 style="color:red"><%=error %></h3>
+      	  <%} %>
+      	  
   	<div class="container">
         <div class="text-container">
-            <h1><%=eventDetails.getDetail_type() %></h1>
-            <p><%=eventDetails.getDetail_description() %></p>
-     
-            <%if(users != null && users.getRole() != null && !users.getRole().equals("Admin")) { %>
-            <form action="bookings" method="post">
-          		<input type="hidden" value="<%=eventDetails.getDetail_id() %>" name="detail_id" />
-          		<input type="submit" value="Book Now" class="btn" />
-       		 </form>
-       		<%} %>
-       		<%if(users == null) { %>
-            <form action="bookings" method="post">
-          		<input type="hidden" value="<%=eventDetails.getDetail_id() %>" name="detail_id" />
-          		<input type="submit" value="Book Now" class="btn" />
-       		 </form>
-       		<%} %>
-       		
-       		<%if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
-       		
-       		<center>
-       		<form action="update" method="post">
-       		<input type="hidden" name="detail_id" value="<%=eventDetails.getDetail_id()%>">
-       		<input class="update"  type="submit" value="Update">
-       		 </form>
-       		 
-       		 <form action="delete" method="post">
-       		<input type="hidden" name="detail_id" value="<%=eventDetails.getDetail_id()%>">
-       		<input class="delete"  type="submit" value="Delete">
-       		 </form>
           
             
-            </center>
-           
-       		<%} %>
+            <%
+      int detail_id=(int)session.getAttribute("detail_id1");
+      if(detail_id!=0){
+		EventDetailsDAO ed1=new EventDetailsDAOImpl();
+		EventDetails eventDetail=ed1.getEventDetails(detail_id);
+		{%>
+  		<form action="updateEventDetails" method="post">
+   <input type="hidden" name="detail_id" value="<%=eventDetail.getDetail_id()%>">
+    <input type="hidden" name="event_id" value="<%=eventDetail.getEvent_id()%>">
+     <input type="text" name="detail_type" value="<%=eventDetail.getDetail_type() %>">
+     <textarea name="detail_description" rows="" cols=""><%=eventDetail.getDetail_description()%></textarea>
+       <input type="tel" name="price" value="<%=eventDetail.getPrice() %>">
+        <input type="tel" name="room_capacity" value="<%=eventDetail.getRoom_capacity() %>">
+         <input type="text" name="image_url" value="<%=eventDetail.getImage_url()%>">
+         <button class="update" type="submit">Update</button>
+         <br>
+         <br>
+         </form>
+    
+   
+
+       		
+       		
+       		
         </div>
-        <img src="/EventManagementApp/img/<%=eventDetails.getImage_url()%>" alt="" height="100%">
+        <img src="/EventManagementApp/img/<%=eventDetail.getImage_url()%>" alt="" height="100%">
+         <%} %>
+    <%} %>
         
     </div>
-    <%} %>
+    
     <script>
       function goBack() {
         window.history.back();
       }
     </script>
-  </body>
+    
+    
+      
+     <script>
+      let menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+      function toggleMenu() {
+        if (menuList.style.maxHeight == "0px") {
+          menuList.style.maxHeight = "100vh";
+        } else {
+          menuList.style.maxHeight = "0px";
+        }
+      }
+    </script>
+
+</body>
 </html>

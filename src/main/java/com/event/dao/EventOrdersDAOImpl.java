@@ -52,9 +52,11 @@ public class EventOrdersDAOImpl implements EventOrdersDAO{
 	            eo.setOrder_id(rs.getInt(1));
 	            eo.setUser_id(rs.getInt(2));
 	            eo.setEvent_id(rs.getInt(3));
-	            eo.setPrice(rs.getDouble(4));
-	            eo.setStart_booking_date(rs.getString(5));
-	            eo.setEnd_booking_date(rs.getString(6));
+	            eo.setDetail_id(rs.getInt(4));
+	            eo.setPrice(rs.getDouble(5));
+	            eo.setStart_booking_date(rs.getString(6));
+	            eo.setEnd_booking_date(rs.getString(7));
+	            eo.setStatus(rs.getString(8));
 	            orderList.add(eo);
 	        }
 	    } catch (SQLException e) {
