@@ -2,8 +2,11 @@ package com.event.servlets;
 
 import java.io.IOException;
 
+import com.event.dao.EventDetailsDAO;
+import com.event.dao.EventDetailsDAOImpl;
 import com.event.dao.UsersDAO;
 import com.event.dao.UsersDAOImpl;
+import com.event.dto.EventDetails;
 import com.event.dto.Users;
 
 import jakarta.servlet.RequestDispatcher;
@@ -14,26 +17,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/delete")
-public class DeleteUser extends HttpServlet{
+public class DeleteEventDetails extends HttpServlet{
 
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		UsersDAO udao=new UsersDAOImpl();
+		EventDetailsDAO edao=new EventDetailsDAOImpl();
 		
-		Users u1=new Users();
+		EventDetails e1=new EventDetails();
 		
-		u1.setUser_id(Integer.parseInt(req.getParameter("id")));
 		
-		if(udao.deleteUsers(u1)) {
+		e1.setDetail_id(Integer.parseInt(req.getParameter("detail_id")));
+		
+		if(edao.deleteEventDetails(e1)) {
 			req.setAttribute("deletesuccess", "deleted succesfully");
-			RequestDispatcher rd=req.getRequestDispatcher("viewuser.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("eventDetails.jsp");
 			rd.forward(req, resp);
 		}
 		else {
 			req.setAttribute("deleteFail", "failed to delete");
-			RequestDispatcher rd=req.getRequestDispatcher("viewuser.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("eventDetails.jsp");
 			rd.forward(req, resp);
 		}
 		

@@ -165,4 +165,6 @@ public class EventDetailsDAOImpl implements EventDetailsDAO{
 		return eventdetailsList;
 	}
 
+	
+
 }

@@ -27,7 +27,7 @@ public class UpdateEventDetails extends HttpServlet{
 		HttpSession session=req.getSession(false);
 		EventDetailsDAO edao=new EventDetailsDAOImpl();
 		EventDetails e=new EventDetails();
-		e.setEvent_id(Integer.parseInt(req.getParameter("event_id"))); 
+		e.setEvent_id(Integer.parseInt(req.getParameter("event_id")));
 		e.setDetail_id(Integer.parseInt(req.getParameter("detail_id")));
 		e.setDetail_type(req.getParameter("detail_type"));
 		e.setDetail_description(req.getParameter("detail_description"));

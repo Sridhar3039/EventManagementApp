@@ -130,7 +130,8 @@
 if(user!=null){%>
 <nav>
       <div class="logo">
-        <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" />
+      <!--   <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" /> -->
+       <h1>Vibrance</h1>
       </div>
       <div>
         <input class="search" type="search" placeholder="Search events" />
@@ -140,8 +141,8 @@ if(user!=null){%>
         <li><a href="pendingorders.jsp">Pending Orders</a></li>
         <li><a href="viewuser.jsp">View Users</a></li>
         <li><a href="addevents.jsp">Add Events</a></li>
-        <li><a href="">Update Events</a></li>
-        <li><a href="">Delete Events</a></li>
+        <li><a href="updateEvent.jsp">Update Events</a></li>
+        <li><a href="deleteEvents.jsp">Delete Events</a></li>
         <li><a href="logout">Logout</a></li>  
       </ul>
       <div class="menu-icon">

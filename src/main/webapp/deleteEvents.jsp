@@ -126,7 +126,7 @@
 
 <nav>
       <div class="logo">
-     <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" />
+    <!--  <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" /> -->
         <h1>Vibrance</h1>
       </div>
       <div>
@@ -138,8 +138,8 @@
         <a href="viewuser.jsp">View Users</a>
         <a href="userDashboard.jsp">Access as User</a>
         <a href="addevents.jsp">Add Events</a>
-        <a href="">Update Events</a>
-        <a href="">Delete Events</a>
+        <a href="updateEvent.jsp">Update Events</a>
+        <a href="deleteEvents.jsp">Delete Events</a>
         <a href="logout">Logout</a>
       </div>
       <div class="menu-icon">

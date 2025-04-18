@@ -118,7 +118,7 @@
 }
 
 .add {
-    width: 50px;
+    width: 46px;
     height: 50px;
     border: 2px solid rgb(97, 97, 97);
     color: rgb(97, 97, 97);
@@ -255,10 +255,9 @@
   		ArrayList<EventDetails> detailsList=ed.getEvents(event_id);
   		for(EventDetails eventDetails:detailsList){
   	   if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
-		<form action="" method="post">
-			<input type="hidden" name="event_id" value="<%=event_id%>" >
-			<button class="add"><i class="fa-solid fa-plus" style="color: rgb(97, 97, 97);"></i></button>
-		</form>
+		
+			<a class="add" href="addevents.jsp"><i class="fa-solid fa-plus" style="color: rgb(97, 97, 97);"></i></a>
+		
 	<%} %>
   	<button class="back"  onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: rgb(97, 97, 97);"></i></button>
   	<div class="container">
@@ -280,15 +279,21 @@
        		<%} %>
        		
        		<%if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
-       		<form action="update" method="post">
+       		
        		<center>
+       		<form action="update" method="post">
        		<input type="hidden" name="detail_id" value="<%=eventDetails.getDetail_id()%>">
        		<input class="update"  type="submit" value="Update">
-           <!--  <a class="update" href="#">Update</a>
-            <a class="delete" href="">Delete</a> -->
+       		 </form>
+       		 
+       		 <form action="delete" method="post">
+       		<input type="hidden" name="detail_id" value="<%=eventDetails.getDetail_id()%>">
+       		<input class="delete"  type="submit" value="Delete">
+       		 </form>
+          
             
             </center>
-            </form>
+           
        		<%} %>
         </div>
         <img src="/EventManagementApp/img/<%=eventDetails.getImage_url()%>" alt="" height="100%">

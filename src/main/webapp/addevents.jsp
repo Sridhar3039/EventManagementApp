@@ -33,6 +33,67 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    
+    <style type="text/css">
+    
+    body {
+    background-image: url("/EventManagementApp/img/eventDetails_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    align-items: center;     
+}
+
+	.container {
+    width: 80%; /* Reduced from 90% */
+    max-width: 1000px; /* Reduced from 1200px */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 80px auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgb(154, 194, 235);
+    overflow: hidden;
+    max-height: 500px;
+    
+  justify-content: center; /* Horizontal centering */
+  align-items: center;     /* Vertical centering */
+  height: 100vh;
+	}
+
+	text-container{
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+    
+ 	  
+	}
+	
+	input, select {
+  padding: 10px;
+  width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  gap:10px;
+  background-color: menu;
+	}
+	
+	input.add{
+	background-color: #7B68EE;
+	color:black;
+	}
+
+
+	
+    </style>
 </head>
 <body>
 <nav>
@@ -48,7 +109,7 @@
         <a href="pendingorder.jsp">Pending Orders</a>
         <a href="viewuser.jsp">View Users</a>
         <a href="addevents.jsp">Add Events</a>
-        <a href="">Update Events</a>
+        <a href="updateEvent.jsp">Update Events</a>
         <a href="deleteEvents.jsp">Delete Events</a>
         <a href="logout">Logout</a>
       </div>
@@ -71,9 +132,10 @@
     
     <form action="addevent" method="post">
     <div class="container">
+    <div class="text-container">
     
     
-    <label for="cars">Choose a Event:</label>
+    <label for="events">Choose a Event:</label>
 
 	<select name="eventid" id="eventid">
 	  <option value="Birthday">111-Birthday</option>
@@ -83,16 +145,19 @@
 	  <option value="Baby Shower">115-Baby Shower </option>
 	  <option value="Product Launch">116-Product Launch</option>
 	  <option value="Private Party">117-Private Party </option>
-	</select>
+	</select><br><br>
 	
-    <input type="text" name="detailtype" placeholder="enter the theme" required>
-    <input type="text" name="detaildescription" placeholder="Description" required>
-    <input type="text" name="price" placeholder="price" required>
-    <input type="tel" name="roomcapacity" placeholder="Capacity" required>
-    <input type="text" name="imageurl" placeholder="enter img patch" required>
+    <input type="text" name="detailtype" placeholder="enter the theme" required><br><br>
+    <input type="text" name="detaildescription" placeholder="Description" required><br><br>
+    <input type="text" name="price" placeholder="price" required><br><br>
+    <input type="tel" name="roomcapacity" placeholder="Capacity" required><br><br>
+    <input type="text" name="imageurl" placeholder="enter img path" required><br><br>
     
-    <input type="submit" value="Add Event">
+    <input class="add" type="submit" value="Add Event">
     </div>
+     
+    </div>
+   
     
     </form>
 

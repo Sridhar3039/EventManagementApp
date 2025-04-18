@@ -122,7 +122,7 @@
 
 <nav>
       <div class="logo">
-     <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" />
+    <!--  <img src="/EventManagementApp/img/eventLogo.png" alt="" height="50px" /> -->
         <h1>Vibrance</h1>
       </div>
       <div>
@@ -133,7 +133,7 @@
         <a href="pendingorder.jsp">Pending Orders</a>
         <a href="viewuser.jsp">View Users</a>
         <a href="addevents.jsp">Add Events</a>
-        <a href="">Update Events</a>
+        <a href="updateEvent.jsp">Update Events</a>
         <a href="deleteEvents.jsp">Delete Events</a>
         <a href="logout">Logout</a>
       </div>
@@ -150,7 +150,6 @@
 	<th>EMAIL</th>
 	<th>PHONE</th>
 	<th>ROLE</th>
-	<th>ACTION</th>
 	</tr>
 	<%UsersDAO udao=new UsersDAOImpl();
 	 ArrayList<Users> ulist=udao.getUsers();
@@ -161,14 +160,6 @@
     <td><%=u.getEmail() %></td>
     <td><%=u.getPhone()%></td>
     <td><%=u.getRole() %></td>
-    <td>
-    <form action="delete" method="post">
-         <input type="hidden" name="id" value="<%=u.getUser_id() %>">
-         <div class="delete">
-       	<input type="submit" class="delete" value="Delete">
-        </div>
-         </form>
-         </td>
     </tr>
       <%} %>
     </table>
