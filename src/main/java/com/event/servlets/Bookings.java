@@ -30,11 +30,11 @@ public class Bookings extends HttpServlet{
 		EventDetails ed=eddao.getEventDetails(Integer.parseInt(req.getParameter("detail_id")));
 		if(ed!=null) {
 			session.setAttribute("eventDetails", ed);
-			resp.sendRedirect("bookings.jsp");
+			resp.sendRedirect("event_booking.jsp");
 		}
 		else {
 			req.setAttribute("error", "failed to book");
-			RequestDispatcher rd=req.getRequestDispatcher("bookings.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("event_booking.jsp");
 			rd.forward(req, resp);
 		}
 	}

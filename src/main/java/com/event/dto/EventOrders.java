@@ -10,13 +10,16 @@ public class EventOrders {
 	private String start_booking_date;
 	private String end_booking_date;
 	private double price;
+	private String booking_type;
 	private String status;
+	
 	
 	@Override
 	public String toString() {
-		return "EventOrders [order_id=" + order_id + ", user_id=" + user_id + ", event_id=" + event_id
-				+ ", start_booking_date=" + start_booking_date + ", end_booking_date=" + end_booking_date + ", price="
-				+ price + "]";
+		return "EventOrders [order_id=" + order_id + ", user_id=" + user_id + ", event_id=" + event_id + ", detail_id="
+				+ detail_id + ", event_name=" + event_name + ", detail_type=" + detail_type + ", start_booking_date="
+				+ start_booking_date + ", end_booking_date=" + end_booking_date + ", price=" + price + ", booking_type="
+				+ booking_type + ", status=" + status + "]";
 	}
 	public int getOrder_id() {
 		return order_id;
@@ -71,6 +74,12 @@ public class EventOrders {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public String getBooking_type() {
+	    return booking_type;
+	}
+	public void setBooking_type(String booking_type) {
+	    this.booking_type = booking_type;
 	}
 	public String getStatus() {
 		return status;

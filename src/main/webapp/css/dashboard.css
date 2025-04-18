@@ -134,7 +134,7 @@ nav > div:nth-child(2) {
 /* Menu */
 #menuList {
   position: absolute;
-  top: 80px;
+  top: 70px;
   right: 0;
   background-color: var(--white);
   box-shadow: var(--shadow-lg);
