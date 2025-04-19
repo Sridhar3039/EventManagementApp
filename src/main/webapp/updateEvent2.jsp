@@ -189,6 +189,69 @@
     background-color: rgb(192, 64, 64);
 }
 
+.text-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.text-container input,
+.text-container textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-top: 8px; /* Add space between label and input */
+}
+
+.text-container textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.text-container input:focus,
+.text-container textarea:focus {
+    outline: none;
+    border-color: rgb(59, 121, 183);
+    box-shadow: 0 0 0 2px rgba(59, 121, 183, 0.2);
+}
+
+.text-container label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    display: block; /* Ensure label is on its own line */
+
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Make the update button more prominent */
+.update {
+    background-color: rgb(59, 121, 183);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    width: auto;
+    padding: 12px 25px;
+}
+
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 992px) {
     .container {
@@ -261,6 +324,7 @@
 }
 
 
+
     </style>
 </head>
 <body>
@@ -308,7 +372,7 @@
 		EventDetailsDAO ed1=new EventDetailsDAOImpl();
 		EventDetails eventDetail=ed1.getEventDetails(detail_id);
 		{%>
-  		<form action="updateEventDetails" method="post">
+  	<%-- 	<!-- <form action="updateEventDetails" method="post">
    <input type="hidden" name="detail_id" value="<%=eventDetail.getDetail_id()%>">
     <input type="hidden" name="event_id" value="<%=eventDetail.getEvent_id()%>">
      <input type="text" name="detail_type" value="<%=eventDetail.getDetail_type() %>">
@@ -319,7 +383,42 @@
          <button class="update" type="submit">Update</button>
          <br>
          <br>
+         </form> -->
+ --%>
+         <form action="updateEventDetails" method="post">
+            <input type="hidden" name="detail_id" value="<%=eventDetail.getDetail_id()%>">
+            <input type="hidden" name="event_id" value="<%=eventDetail.getEvent_id()%>">
+            
+            <div class="form-group">
+              <label for="detail_type">Event Type</label>
+              <input type="text" id="detail_type" name="detail_type" value="<%=eventDetail.getDetail_type() %>">
+            </div>
+            
+            <div class="form-group">
+              <label for="detail_description">Description</label>
+              <textarea id="detail_description" name="detail_description" rows="4"><%=eventDetail.getDetail_description()%></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="tel" id="price" name="price" value="<%=eventDetail.getPrice() %>">
+            </div>
+            
+            <div class="form-group">
+              <label for="room_capacity">Room Capacity</label>
+              <input type="tel" id="room_capacity" name="room_capacity" value="<%=eventDetail.getRoom_capacity() %>">
+            </div>
+            
+            <div class="form-group">
+              <label for="image_url">Choose Image</label>
+              <input type="file" id="image_url" name="image_url" value="<%=eventDetail.getImage_url()%>">
+            </div>
+            
+            <div class="form-buttons">
+              <button class="update" type="submit">Update Event</button>
+            </div>
          </form>
+         
     
    
 

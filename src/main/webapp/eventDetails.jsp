@@ -245,6 +245,126 @@
     }
 }
 
+/* Enhanced styling for update and delete buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.update {
+    text-decoration: none;
+    background-color: #3b79b7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.update:hover {
+    background-color: #2d5f91;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.delete {
+    text-decoration: none;
+    background-color: #d32f2f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.delete:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Add a confirmation dialog style */
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+.dialog-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dialog-content h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.dialog-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.confirm-btn {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #b71c1c;
+}
+
+.cancel-btn {
+    background-color: #757575;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #616161;
+}
+
 
     </style>
   </head>
@@ -279,31 +399,55 @@
        		<%} %>
        		
        		<%if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
-       		
-       		<center>
-       		<form action="update" method="post">
-       		<input type="hidden" name="detail_id" value="<%=eventDetails.getDetail_id()%>">
-       		<input class="update"  type="submit" value="Update">
-       		 </form>
-       		 
-       		 <form action="delete" method="post">
-       		<input type="hidden" name="detail_id" value="<%=eventDetails.getDetail_id()%>">
-       		<input class="delete"  type="submit" value="Delete">
-       		 </form>
-          
+                <div class="action-buttons">
+                    <form action="update" method="post">
+                        <input type="hidden" name="detail_id" value="<%=eventDetails.getDetail_id()%>">
+                        <input class="update" type="submit" value="Update Event Details">
+                    </form>
+                    
+                     <!-- Pass the detail_id to the JavaScript function -->
+            <button class="delete" onclick="showDeleteConfirmation(<%=eventDetails.getDetail_id()%>)">Delete Event</button>
+                </div>
+                
+                
+            <%} %>
             
-            </center>
-           
-       		<%} %>
         </div>
         <img src="/EventManagementApp/img/<%=eventDetails.getImage_url()%>" alt="" height="100%">
         
     </div>
     <%} %>
-    <script>
-      function goBack() {
-        window.history.back();
-      }
-    </script>
+
+   <!-- Delete confirmation dialog - outside the loop -->
+<div id="deleteConfirmDialog" class="confirm-dialog">
+    <div class="dialog-content">
+        <h3>Confirm Deletion</h3>
+        <p>Are you sure you want to delete this event? This action cannot be undone.</p>
+        <div class="dialog-buttons">
+            <form action="deleteEvent" method="post" id="deleteForm">
+                <input type="hidden" name="detail_id" id="deleteDetailId" value="">
+                <button type="submit" class="confirm-btn">Yes, Delete</button>
+            </form>
+            <button class="cancel-btn" onclick="hideDeleteConfirmation()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+
+  function showDeleteConfirmation(detailId) {
+    // Set the detail_id in the hidden form field
+    document.getElementById('deleteDetailId').value = detailId;
+    // Show the dialog
+    document.getElementById('deleteConfirmDialog').style.display = 'flex';
+  }
+  
+  function hideDeleteConfirmation() {
+    document.getElementById('deleteConfirmDialog').style.display = 'none';
+  }
+</script>
   </body>
 </html>
