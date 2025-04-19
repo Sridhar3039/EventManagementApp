@@ -424,6 +424,7 @@
                     <a href="addevents.jsp">Add Events</a>
                     <a href="updateEvent.jsp">Update Events</a>
                     <a href="deleteEvents.jsp">Delete Events</a>
+                    <a href="adminDashboard.jsp">Home</a>
                     <a href="logout">Logout</a>
                 </div>
             </div>
