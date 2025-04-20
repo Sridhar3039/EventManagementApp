@@ -24,6 +24,16 @@
       referrerpolicy="no-referrer"
     ></script>
     <style>
+    :root {
+      --primary-color: rgb(59, 121, 183);
+      --secondary-color: rgb(154, 194, 235);
+      --accent-color: rgb(65, 65, 142);
+      --text-color: #333;
+      --light-bg: rgba(255, 255, 255, 0.9);
+      --border-radius: 12px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
     	body {
     background-image: url("/EventManagementApp/img/eventDetails_bg.jpg");
     background-repeat: no-repeat;
@@ -94,51 +104,56 @@
 }
 
 .back {
-    width: 50px;
-    height: 50px;
-    border: 2px solid rgb(97, 97, 97);
-    color: rgb(97, 97, 97);
-    border-radius: 50%;
-    font-size: 30px;
-    padding: 7px;
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    background: none;
-    cursor: pointer;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.back:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
+      width: 50px;
+      height: 50px;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      border-radius: 50%;
+      font-size: 24px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      background: white;
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.3s;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .back:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
 .add {
-    width: 46px;
-    height: 50px;
-    border: 2px solid rgb(97, 97, 97);
-    color: rgb(97, 97, 97);
-    border-radius: 8px;
-    font-size: 30px;
-    padding: 7px;
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    background: none;
-    cursor: pointer;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      border-radius: 10px;
+      font-size: 24px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 30px;
+      right: 50px;
+      background: white;
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.3s;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .add:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
 }
 
 .update {
@@ -146,6 +161,7 @@
     background-color: rgb(65, 65, 142);
     color: white;
     padding: 12px 20px;
+    border: none;
     border-radius: 8px;
     display: block;
     text-align: center;
@@ -163,6 +179,7 @@
     background-color: rgb(162, 34, 34);
     color: white;
     padding: 12px 20px;
+    border: none;
     border-radius: 8px;
     display: block;
     text-align: center;
@@ -215,8 +232,10 @@
     }
     
     .back {
-        left: 15px;
-    }
+        width: 40px;
+        height: 40px;
+        top: 15px;
+      }
     
     .add {
         right: 15px;
@@ -249,17 +268,18 @@
     </style>
   </head>
   <body>
+  <button class="back" onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: inherit;"></i></button>
   	<% Users users = (Users)session.getAttribute("users");
+  	if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
+	<a class="add" href="addevents.jsp"><i class="fa-solid fa-plus" style="color:  inherit;"></i></a>		
+	<%}
   		int event_id=(int)session.getAttribute("event_id");
+  		 
   		EventDetailsDAO ed=new EventDetailsDAOImpl();
   		ArrayList<EventDetails> detailsList=ed.getEvents(event_id);
-  		for(EventDetails eventDetails:detailsList){
-  	   if(users != null && users.getRole() != null && !users.getRole().equals("User")) { %>
-		
-			<a class="add" href="addevents.jsp"><i class="fa-solid fa-plus" style="color: rgb(97, 97, 97);"></i></a>
-		
-	<%} %>
-  	<button class="back"  onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: rgb(97, 97, 97);"></i></button>
+  		for(EventDetails eventDetails:detailsList){  %>
+  	  
+  	
   	<div class="container">
         <div class="text-container">
             <h1><%=eventDetails.getDetail_type() %></h1>

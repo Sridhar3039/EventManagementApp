@@ -25,7 +25,7 @@ public class UpdateDetails extends HttpServlet {
 		if(detail_id!=0) {
 			
 			session.setAttribute("detail_id1", detail_id);
-			resp.sendRedirect("updateEvent2.jsp");
+			resp.sendRedirect("updateEventDetails.jsp");
 		}
 		else {
 			req.setAttribute("error", "failed to update");

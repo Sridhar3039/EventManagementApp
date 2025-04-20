@@ -53,8 +53,6 @@
 
         <a href="pendingorder.jsp">Pending Orders</a>
         <a href="viewuser.jsp">View Users</a>
-        <a href="addevents.jsp">Add Events</a>
-        <a href="updateEvent.jsp">Update Events</a>
         <a href="deleteEvents.jsp">Delete Events</a>
         <a href="logout">Logout</a>
       </div>

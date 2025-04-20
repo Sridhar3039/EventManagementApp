@@ -90,7 +90,7 @@ nav.scrolled {
   left: 0;
   width: 30%;
   height: 3px;
-  background: linear-gradient(90deg, var(--secondary), transparent);
+  background: linear-gradient(90deg, var(--primary), transparent);
   border-radius: 10px;
 }
 
@@ -298,8 +298,8 @@ nav > div:nth-child(2) {
 
 .nav-scroll {
   display: flex;
-  gap: 2rem;
-  padding: 0.5rem 5%;
+  gap: 4rem;
+  padding: 0.8rem 5%;
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -373,7 +373,7 @@ h1::after {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
   border-radius: 10px;
 }
 
@@ -657,7 +657,7 @@ footer::before {
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
 }
 
 .footer {
@@ -675,7 +675,7 @@ footer::before {
 
 .footer-content h1 {
   font-size: 2rem;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -736,7 +736,7 @@ footer::before {
   left: 0;
   width: 40px;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
   border-radius: 10px;
 }
 
