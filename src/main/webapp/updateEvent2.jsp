@@ -59,7 +59,6 @@
       padding: 30px 20px;
       position: relative;
     }
-
     .container {
       width: 90%;
       max-width: 1100px;
@@ -285,8 +284,7 @@
   <div class="container">
     <div class="text-container">
       <div>
-        <h2>Update Event Details</h2>
-        
+        <h2>Update Event Details</h2> 
         <%String success=(String)request.getAttribute("udsuccess");
         if(success!=null){%>
           <div class="alert alert-success"><%=success %></div>
@@ -342,7 +340,6 @@
       <%} %>
     <%} %>
   </div>
-    
   <script>
     function goBack() {
       window.history.back();
