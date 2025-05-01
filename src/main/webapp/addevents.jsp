@@ -273,13 +273,13 @@
         <div class="form-group">
           <label for="eventid" class="form-label">Choose an Event Type:</label>
           <select name="eventid" id="eventid" class="form-control">
-            <option value="Birthday">111-Birthday</option>
-            <option value="Engagement">112-Engagement</option>
-            <option value="Wedding">113-Wedding</option>
-            <option value="Matrnity">114-Matrnity</option>
-            <option value="Baby Shower">115-Baby Shower</option>
-            <option value="Product Launch">116-Product Launch</option>
-            <option value="Private Party">117-Private Party</option>
+            <option value="111">Birthday</option>
+            <option value="112">Engagement</option>
+            <option value="113">Wedding</option>
+            <option value="114">Matrnity</option>
+            <option value="115">Baby Shower</option>
+            <option value="116">Product Launch</option>
+            <option value="117">Private Party</option>
           </select>
         </div>
         
@@ -305,7 +305,7 @@
         
         <div class="form-group">
           <label for="imageurl" class="form-label">Image Path:</label>
-          <input type="text" name="imageurl" id="imageurl" placeholder="Enter image path" class="form-control" required>
+          <input type="file" name="imageurl" id="imageurl" placeholder="select the image" class="form-control" required>
         </div>
         
         <button type="submit" class="btn btn-add">

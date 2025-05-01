@@ -394,6 +394,7 @@
 	<a class="add" href="addevents.jsp"><i class="fa-solid fa-plus" style="color:  inherit;"></i></a>		
 	<%}
   		int event_id=(int)session.getAttribute("event_id");
+  		String event_name=(String)session.getAttribute("event_name");
   		 
   		EventDetailsDAO ed=new EventDetailsDAOImpl();
   		ArrayList<EventDetails> detailsList=ed.getEvents(event_id);

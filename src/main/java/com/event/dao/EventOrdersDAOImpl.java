@@ -41,7 +41,7 @@ public class EventOrdersDAOImpl implements EventOrdersDAO{
 
 	@Override
 	public ArrayList<EventOrders> getEventOrders() {
-		String query = "select * from event_orders";
+		String query="SELECT e.event_name, ed.detail_type, eo.order_id, eo.user_id, eo.start_booking_date, eo.end_booking_date, ed.price, eo.status FROM event_orders eo JOIN events e ON eo.event_id = e.event_id JOIN event_details ed ON eo.detail_id = ed.detail_id";
 	    ArrayList<EventOrders> orderList = new ArrayList<>();
 	    EventOrders eo = null;
 	    try {
@@ -49,16 +49,17 @@ public class EventOrdersDAOImpl implements EventOrdersDAO{
 	        ResultSet rs = ps.executeQuery();
 	        while (rs.next()) {
 	            eo = new EventOrders();
-	            eo.setOrder_id(rs.getInt(1));
-	            eo.setUser_id(rs.getInt(2));
-	            eo.setEvent_id(rs.getInt(3));
-	            eo.setDetail_id(rs.getInt(4));
-	            eo.setPrice(rs.getDouble(5));
-	            eo.setStart_booking_date(rs.getString(6));
-	            eo.setEnd_booking_date(rs.getString(7));
-	            eo.setStatus(rs.getString(8));
+	            eo.setOrder_id(rs.getInt("order_id"));
+	            eo.setUser_id(rs.getInt("user_id"));
+	            eo.setEvent_name(rs.getString("event_name"));
+	            eo.setDetail_type(rs.getString("detail_type"));
+	            eo.setPrice(rs.getDouble("price"));
+	            eo.setStart_booking_date(rs.getString("start_booking_date"));
+	            eo.setEnd_booking_date(rs.getString("end_booking_date"));
+	            eo.setStatus(rs.getString("status"));
 	            orderList.add(eo);
 	        }
+
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
