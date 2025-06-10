@@ -21,14 +21,14 @@ public class EventDetailsDAOImpl implements EventDetailsDAO{
 		String query = "INSERT INTO event_details(event_id, detail_type, detail_description, price, room_capacity, image_url) VALUES(?, ?, ?, ?, ?, ?)";
 	    int i = 0;
 	    try {
-	        PreparedStatement ps = con.prepareStatement(query);
-	        ps.setInt(1, ed.getEvent_id());
-	        ps.setString(2, ed.getDetail_type());
-	        ps.setString(3, ed.getDetail_description());
-	        ps.setDouble(4, ed.getPrice());
-	        ps.setInt(5, ed.getRoom_capacity());
-	        ps.setString(6, ed.getImage_url());
-	        i = ps.executeUpdate();
+	    	 PreparedStatement ps = con.prepareStatement(query);
+		        ps.setInt(1, ed.getEvent_id());
+		        ps.setString(2, ed.getDetail_type());
+		        ps.setString(3, ed.getDetail_description());
+		        ps.setDouble(4, ed.getPrice());
+		        ps.setInt(5, ed.getRoom_capacity());
+		        ps.setString(6, ed.getImage_url());
+		        i = ps.executeUpdate();
 	    }catch (SQLException e) {
 			e.printStackTrace();
 		}
