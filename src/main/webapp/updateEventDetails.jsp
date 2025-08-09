@@ -329,7 +329,7 @@
             
             <div class="form-group">
               <label class="form-label">Image URL</label>
-              <input type="text" name="image_url" value="<%=eventDetail.getImage_url()%>" class="form-control">
+              <input type="file" name="image_url" value="<%=eventDetail.getImage_url()%>" class="form-control">
             </div>
             
             <button class="btn btn-update" type="submit">

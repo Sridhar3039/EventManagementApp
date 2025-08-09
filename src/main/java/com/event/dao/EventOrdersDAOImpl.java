@@ -40,7 +40,11 @@ public class EventOrdersDAOImpl implements EventOrdersDAO{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ArrayList<EventOrders> getEventOrders() {		
+=======
+	public ArrayList<EventOrders> getEventOrders() {
+>>>>>>> a167f1aaecc7943e39305519b1a2de49562da9a8
 		String query="SELECT e.event_name, ed.detail_type, eo.order_id, eo.user_id, eo.start_booking_date, eo.end_booking_date, ed.price, eo.status FROM event_orders eo JOIN events e ON eo.event_id = e.event_id JOIN event_details ed ON eo.detail_id = ed.detail_id";
 	    ArrayList<EventOrders> orderList = new ArrayList<>();
 	    EventOrders eo = null;
@@ -59,6 +63,7 @@ public class EventOrdersDAOImpl implements EventOrdersDAO{
 	            eo.setStatus(rs.getString("status"));
 	            orderList.add(eo);
 	        }
+
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
