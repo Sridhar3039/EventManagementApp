@@ -264,10 +264,10 @@
           <h1>Vibrance</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad cupiditate reiciendis quam eaque quisquam perspiciatis nulla cumque non ab nesciunt provident, minus, aspernatur quaerat odio deleniti, harum ratione officia ex!</p>
           <div class="footer-icon">
-            <i class="fa-brands fa-instagram" style="color: #000000; font-size: 25px;"></i>
-            <i class="fa-brands fa-facebook" style="color: #000000; font-size: 25px;"></i>
-            <i class="fa-brands fa-twitter" style="color: #000000; font-size: 25px;"></i>
-            <i class="fa-brands fa-whatsapp" style="color: #000000; font-size: 25px;"></i>
+            <i class="fa-brands fa-instagram" style="color: #8e99f3; font-size: 25px;"></i>
+            <i class="fa-brands fa-facebook" style="color: #8e99f3; font-size: 25px;"></i>
+            <i class="fa-brands fa-twitter" style="color: #8e99f3; font-size: 25px;"></i>
+            <i class="fa-brands fa-whatsapp" style="color: #8e99f3; font-size: 25px;"></i>
           </div>
         </div>
         <div class="footer-events">
